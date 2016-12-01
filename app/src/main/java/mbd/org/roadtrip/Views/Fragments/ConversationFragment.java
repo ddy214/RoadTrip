@@ -43,7 +43,7 @@ public class ConversationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerAdapter = new MessageAdapter(R.layout.message_left, FirebaseUtil.getInstanceDatabase().child("messages").child("one").orderByChild("timestamp"), FirebaseAuth.getInstance().getCurrentUser().getEmail(), getContext());
+        recyclerAdapter = new MessageAdapter(R.layout.message_left, FirebaseUtil.getMessagesForGroup(MESSAGE_CHILD_ONE), FirebaseAuth.getInstance().getCurrentUser().getEmail(), getContext());
     }
 
     @Override
