@@ -1,0 +1,191 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="mbd.org.roadtrip.ViewModels.SettingsViewModel"/>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:title="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/DateBar"
+        android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mbd.org.roadtrip.Views.Fragments.SettingsFragment">
+
+
+    <TextView
+        android:text="Edit Trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="20sp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayout7"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@{viewModel.title}"
+            android:hint="Group Name"
+            android:ems="10"
+            tools:layout_editor_absoluteY="85dp"
+            tools:layout_editor_absoluteX="86dp"
+            android:id="@+id/name" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayout9"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:focusable="false"
+        android:text="@{viewModel.date}"
+        android:onClick="@{viewModel.chooseDate}"
+        android:ems="10"
+        tools:layout_editor_absoluteX="78dp"
+        android:id="@+id/startDate"
+        android:hint="Trip Start Date"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayout8"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@{viewModel.location}"
+        android:ems="10"
+        android:hint="Trip Destination"
+        tools:layout_editor_absoluteY="207dp"
+        tools:layout_editor_absoluteX="96dp"
+        android:id="@+id/location" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/textInputLayout11">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@{viewModel.endDate}"
+        android:hint="Trip End Date"
+        android:focusable="false"
+        android:onClick="@{viewModel.chooseEndDate}"
+        android:ems="10"
+        tools:layout_editor_absoluteY="403dp"
+        tools:layout_editor_absoluteX="82dp"
+        android:id="@+id/endDate" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:onClick="@{viewModel.editGroup}"
+        android:text="Edit Trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:onClick="@{viewModel.addFriend}"
+        android:text="Add Friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout12"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textInputLayout12">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Friend Email"
+        android:ems="10"
+        android:id="@+id/email"
+        tools:layout_editor_absoluteY="480dp"
+        tools:layout_editor_absoluteX="153dp" />
+    </android.support.design.widget.TextInputLayout>
+
+</android.support.constraint.ConstraintLayout>
+</LinearLayout>
+    </ScrollView>
+</layout>

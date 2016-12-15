@@ -1,9 +1,11 @@
 package mbd.org.roadtrip.ViewModels;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import mbd.org.roadtrip.Utils.FirebaseUtil;
+import mbd.org.roadtrip.Views.Adapters.MessageAdapter;
 import mbd.org.roadtrip.databinding.FragmentConversationBinding;
 
 /**
@@ -14,11 +16,13 @@ public class ConversationViewModel {
     private Context mContext;
     private FragmentConversationBinding mBinding;
     private String groupID;
+    private MessageAdapter mAdapter;
 
-    public ConversationViewModel(Context context, FragmentConversationBinding binding, String groupID){
+    public ConversationViewModel(Context context, FragmentConversationBinding binding, String groupID, MessageAdapter adapter){
         mContext = context;
         mBinding = binding;
         this.groupID = groupID;
+        mAdapter = adapter;
     }
 
     public View.OnClickListener sendMessage(){
@@ -29,11 +33,16 @@ public class ConversationViewModel {
                     return;
                 } else {
                     String message = mBinding.input.getText().toString();
-                    FirebaseUtil.sendNewMessage(message, groupID);
+                    FirebaseUtil.getInstance().sendNewMessage(message, groupID);
+                    ((LinearLayoutManager) mBinding.recyclerView.getLayoutManager()).setStackFromEnd(true);
+                    mBinding.recyclerView.smoothScrollToPosition(mAdapter.getItemCount());
+                    mBinding.input.setText("");
                 }
             }
         };
     }
+
+
 
 
 }

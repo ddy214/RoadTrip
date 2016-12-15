@@ -1,13 +1,55 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="groupListViewModel"
+            type="mbd.org.roadtrip.ViewModels.GroupListViewModel"/>
+    </data>
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mbd.org.roadtrip.Views.Fragments.GroupsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/DateBar"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:title="@string/app_name"
+        android:elevation="4dp">
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context="com.bookshelf.derekyu.bookshelf.Views.Fragments.BookListFragment">
 
-</FrameLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:onClick="@{groupListViewModel.goToTripCreator}"
+        android:id="@+id/floatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/whiteColor"
+        app:backgroundTint="?attr/actionModeSplitBackground"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@mipmap/add_button" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chatsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+</LinearLayout>
+</layout>

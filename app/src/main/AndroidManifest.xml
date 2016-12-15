@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Views.Activities.BaseActivity" />
-        <activity android:name=".Views.Activities.CreateTripGroup"></activity>
+        <activity android:name=".Views.Activities.ScheduleActivity">
+        </activity>
+        <activity android:name=".Views.Activities.MenuActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

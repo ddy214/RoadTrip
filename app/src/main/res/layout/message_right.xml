@@ -11,7 +11,10 @@
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/rightMessage">
+    android:id="@+id/rightMessage"
+    android:backgroundTint="@color/textColor"
+    android:onLongClick="@{message.setupScheduleEvent}"
+    android:background="@color/textColor">
 
 
     <TextView

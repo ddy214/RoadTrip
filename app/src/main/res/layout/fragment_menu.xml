@@ -1,0 +1,278 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="mbd.org.roadtrip.ViewModels.MenuViewModel"/>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="mbd.org.roadtrip.Views.Fragments.MenuFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:title="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/DateBar"
+        android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.CardView
+        android:onClick="@{viewModel.settings}"
+        android:id="@+id/titleCard"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="6dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@{viewModel.title}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tripName"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textColor="@color/cast_expanded_controller_background_color" />
+
+            <TextView
+                android:text="End:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/end"
+                android:layout_marginStart="145dp"
+                app:layout_constraintLeft_toRightOf="@+id/start"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/location"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@{viewModel.destination}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/location"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tripName"
+                android:textSize="18sp"
+                android:textColor="@color/authui_inputTextColorDark" />
+
+            <TextView
+                android:text="Start:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/start"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/location"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@{viewModel.start}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/start"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textSize="16sp"
+                android:textColor="@color/authui_inputTextColorDark" />
+
+            <TextView
+                android:text="@{viewModel.end}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginStart="102dp"
+                app:layout_constraintLeft_toRightOf="@+id/textView2"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/end"
+                android:textSize="16sp"
+                android:textColor="@color/authui_inputTextColorDark" />
+
+            <TextView
+                android:text="Members:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:text="@{viewModel.members}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:text="@{viewModel.numMembers}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/memberNum"
+                android:layout_marginStart="8dp"
+                app:layout_constraintLeft_toRightOf="@+id/textView7"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/ic_map"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:text="Map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView10"
+            app:layout_constraintLeft_toRightOf="@+id/imageView2"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="32dp" />
+    </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:onClick="@{viewModel.conversation}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_messenger"
+                android:id="@+id/imageView4"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:text="Messenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11"
+                android:layout_marginStart="32dp"
+                app:layout_constraintLeft_toRightOf="@+id/imageView4"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:onClick="@{viewModel.schedule}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_schedule"
+                android:id="@+id/imageView5"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:text="Schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/imageView5"
+                android:layout_marginStart="32dp" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/imageView6"
+                android:layout_marginStart="32dp"
+                android:text="Travel Documents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_documents"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp"/>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    </ScrollView>
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</layout>

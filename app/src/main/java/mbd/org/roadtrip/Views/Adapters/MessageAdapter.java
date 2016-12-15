@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mbd.org.roadtrip.BR;
+import mbd.org.roadtrip.Models.Chats;
 import mbd.org.roadtrip.Models.Message;
 import mbd.org.roadtrip.R;
 import mbd.org.roadtrip.ViewModels.MessageViewModel;
@@ -31,11 +32,13 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message,MessageAdapt
 
     private Context mContext;
     private String mEmail;
+    private Chats mChats;
 
-    public MessageAdapter( int modelLayout, Query ref, String id, Context context) {
+    public MessageAdapter(int modelLayout, Query ref, String id, Context context, Chats chats) {
         super(Message.class, modelLayout, BindingHolder.class, ref);
         mContext = context;
         mEmail = id;
+        mChats = chats;
     }
 
 
@@ -69,7 +72,7 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message,MessageAdapt
 
     @Override
     protected void populateViewHolder(BindingHolder viewHolder, Message model, int position) {
-        viewHolder.binding.setVariable(BR.message, new MessageViewModel(mContext, model));
+        viewHolder.binding.setVariable(BR.message, new MessageViewModel(mContext, model, mChats));
     }
 
     public static class BindingHolder extends RecyclerView.ViewHolder{

@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="mbd.org.roadtrip.ViewModels.ConversationViewModel"/>
     </data>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:title="@string/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/DateBar"
+            android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+<RelativeLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -54,5 +68,7 @@
         android:divider="@android:color/transparent"
         android:id="@+id/recyclerView"
         android:layout_marginBottom="16dp"/>
+
 </RelativeLayout>
+    </LinearLayout>
 </layout>
